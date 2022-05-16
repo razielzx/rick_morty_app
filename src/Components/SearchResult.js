@@ -1,6 +1,6 @@
-import SearchBox from "./Components/SearchBox.js";
+import SearchBox from "./SearchBox.js";
 
-document.body.style = "background: #0c151d";
+document.body.style = "background: #272121";
 
 function App() {
   return (
