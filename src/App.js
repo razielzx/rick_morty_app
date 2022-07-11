@@ -1,4 +1,4 @@
-import SearchBox from "./Components/SearchBox.js";
+import SearchBox from "./Components/SearchBox";
 
 document.body.style = "background: #0c151d";
 
@@ -8,7 +8,7 @@ function App() {
       <div className="banner"></div>
       <div className="container">
         <h1>Rick and Morty Wiki</h1>
-        <SearchBox />
+        <SearchBox/>
       </div>
     </>
   );

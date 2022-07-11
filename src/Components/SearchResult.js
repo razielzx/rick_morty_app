@@ -1,17 +1,25 @@
-import SearchBox from "./SearchBox.js";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
-document.body.style = "background: #272121";
+const SearchResult = ({ url, handle }) => {
+  const [results, setResults] = useState([]);
 
-function App() {
-  return (
-    <>
-      <div className="banner"></div>
-      <div className="container">
-        <h1>Rick and Morty Wiki</h1>
-        <SearchBox />
-      </div>
-    </>
-  );
-}
+  useEffect(() => {
+    const promise = axios(url);
+    promise.then((res) => setResults(res.data.results.slice(0, 7)));
+    promise.catch(() => {});
+  }, [url]);
 
-export default App;
+  const resultsList = results.map((value) => (
+    <button
+      onClick={() => handle(value.url)}
+      key={value.url.substring(41)}
+    >
+      {value.name}
+    </button>
+  ));
+
+  return <div className="results">{resultsList}</div>;
+};
+
+export default SearchResult;

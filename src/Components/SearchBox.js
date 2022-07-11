@@ -5,15 +5,19 @@ import LocationContainer from "./LocationContainer.js";
 
 const query = Math.floor(Math.random() * 108) + 1;
 
+
 const SearchBox = () => {
   const [url, setUrl] = useState(
     `https://rickandmortyapi.com/api/location/${query}`
   );
+
+
   const [search, setSearch] = useState("");
   const handleSearch = (url) => {
     setSearch("");
     setUrl(url);
   };
+
   return (
     <>
       <input
